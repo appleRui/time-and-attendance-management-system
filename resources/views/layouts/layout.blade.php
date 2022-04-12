@@ -27,11 +27,10 @@
             </form>
           </li>
         </ul>
-
       </div>
     </div>
   </nav>
-  <div class="container mx-auto">
+  <div class="container mx-auto mb-5">
     @yield('content')
   </div>
 </body>
