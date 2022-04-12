@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AttendanceController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth')->group(function () {
-  Route::get('/', function () {
-    return view('welcome');
-  });
+  Route::get('/', [AttendanceController::class, 'index'])->name('attendances.index');
+  Route::post('/job-in', [AttendanceController::class, 'jobIn'])->name('attendances.jobIn');
+  Route::post('/job-out', [AttendanceController::class, 'jobOut'])->name('attendances.jobOut');
+
   Route::get('/dashboard', function () {
     return view('dashboard')->name('dashboard');
   });
